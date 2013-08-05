@@ -55,11 +55,12 @@ classdef TLbox < handle
             tlb.MC = 3; 
                       
             
-            if strcmp(tlb.sourcetype, 'mod30')
+            %check source/receiver configuration: 
+            if strcmp(tlb.sourcetype, 'mod30') %if MOD-30 source array is used 
                 fid = fopen('source_spacing.in', 'wt'); 
                 fprintf(fid,'10\n0.8382\n0.8001\n0.8382\n0.8001\n0.8001\n0.8382\n0.8382\n0.8382\n0.8382\n'); 
                 fclose(fid); 
-            elseif strcmp(tlb.sourcetype, 'xf4')
+            elseif strcmp(tlb.sourcetype, 'xf4') %if XF-4 source array is used 
                 fid = fopen('source_spacing.in', 'wt'); 
                 fprintf(fid, '7\n1.6256\n1.6256\n1.6256\n1.6256\n1.6256\n1.6256\n'); 
                 fclose(fid); 
@@ -71,7 +72,9 @@ classdef TLbox < handle
             end
         end %end class constructor TLbox
         
-        function tlb = selectFrequency(tlb, f0)
+
+        %select frequency and correct array aperture 
+        function tlb = selectFrequency(tlb, f0) 
             tlb.f0 = f0; 
             tlb.transect.frequency = f0; 
             if f0 < 950 
@@ -83,6 +86,7 @@ classdef TLbox < handle
         end
         
         
+        %calculate TL to a boxed area: 
         function tlb = getTLbox(tlb)
             
             initializeTLboxCalculation;             
@@ -149,11 +153,6 @@ classdef TLbox < handle
             tlb.boxTLangleAve = boxTLangleAve; 
             
         end %end getTLbox function 
-        
-
-                
-                
-
  
     end %methods 
 end %classdef 

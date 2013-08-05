@@ -19,6 +19,8 @@ tlb = TLbox(608202, 4673791, 65, ...
 tlb.MC = 1; 
 tlb.depthOffBottomAve = 1; %set the mode to averaging within some water column off of the bottom 
 tlb.depth_above_floor = 50; %water column of 50 m from the bottom 
+
+
 %other options: 
 % tlb.depthLimAve = 1; %set the averaging mode to say from 100 m to 150 m.
 % This depends on where the fish are hypothesized/found to be. If
@@ -33,6 +35,10 @@ tlb.RAMpath = './'; %path where the executable RAM files are located.
 
 tlb.getTLbox; %calculates TL to the boxed area, loop through all radial directions 
 
+
+
+
+%results check: 
 figure; imagesc([tlb.x1 tlb.x2], [tlb.y2 tlb.y1], tlb.boxTLangleAve); caxis([-80 -70]); axis xy
 hold on; 
 
