@@ -31,7 +31,7 @@ tlb.selectFrequency(415); %set the frequency to 415 Hz. The aperture L will be s
 tlb.corr_length = 500; %range to update the sound speed profile 
 tlb.RAMpath = './'; %path where the executable RAM files are located. 
 
-tlb.getTLbox; 
+tlb.getTLbox; %calculates TL to the boxed area, loop through all radial directions 
 
 figure; imagesc([tlb.x1 tlb.x2], [tlb.y2 tlb.y1], tlb.boxTLangleAve); caxis([-80 -70]); axis xy
 hold on; 

@@ -40,7 +40,7 @@ classdef TLbox < handle
             tlb.zs = 65; 
             
                      
-            tlb.transect = TL; 
+            tlb.transect = TL; %make sure TL class in in the search path 
             tlb.xs = xs; 
             tlb.ys = ys; 
             tlb.zs = zs; 
