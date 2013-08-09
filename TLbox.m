@@ -51,7 +51,7 @@ classdef TLbox < handle
             tlb.sourcetype = lower(sourcetype); 
             tlb.depth_start = depth_start; 
             tlb_depth_end = depth_end; 
-            tlb.RAMpath = '/Users/dtran/RAM4/';
+            tlb.RAMpath = '/Users/dtran/Research/TransmissionLoss/TL/fortran/MacOS/';
             tlb.MC = 3; 
                       
             
@@ -72,8 +72,13 @@ classdef TLbox < handle
             end
         end %end class constructor TLbox
         
+        %% set RAM path 
+        
+        function tlb = setRAMpath(tlb, setpath)
+            tlb.RAMpath = setpath; 
+        end
 
-        %select frequency and correct array aperture 
+        %% select frequency and correct array aperture 
         function tlb = selectFrequency(tlb, f0) 
             tlb.f0 = f0; 
             tlb.transect.frequency = f0; 
@@ -86,7 +91,7 @@ classdef TLbox < handle
         end
         
         
-        %calculate TL to a boxed area: 
+        %% calculate TL to a boxed area: 
         function tlb = getTLbox(tlb)
             
             initializeTLboxCalculation;             
@@ -101,7 +106,7 @@ classdef TLbox < handle
                     if strcmpi(tlb.sourcetype, 'rcv')
                         tlb.transect.calculateGreen(); 
                     else
-                        tlb.transect.calculateGreenSourceArray(); 
+                        tlb.transect.calculateGreenSourceArray(tlb.sourcetype); 
                     end 
                     
                     if jj==1

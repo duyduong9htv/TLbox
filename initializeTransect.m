@@ -12,6 +12,7 @@ tlb.transect.x1 = tlb.xs;
 tlb.transect.y1 = tlb.ys; 
 tlb.transect.x2 = radial_end(ii, 1); 
 tlb.transect.y2 = radial_end(ii, 2); 
+tlb.transect.setRAMpath(tlb.RAMpath); 
 %                 tlb.transect.RAMpath = tlb.RAMpath; 
 
                 

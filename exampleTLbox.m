@@ -31,7 +31,7 @@ tlb.depth_above_floor = 50; %water column of 50 m from the bottom
 
 tlb.selectFrequency(415); %set the frequency to 415 Hz. The aperture L will be set accordingly 
 tlb.corr_length = 500; %range to update the sound speed profile 
-tlb.RAMpath = './'; %path where the executable RAM files are located. 
+tlb.setRAMpath('/Users/dtran/Research/TransmissionLoss/TL/fortran/MacOS/'); %path where the executable RAM files are located. 
 
 tlb.getTLbox; %calculates TL to the boxed area, loop through all radial directions 
 
